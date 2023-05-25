@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+
+<head>
+    <title> Text to Image (Encode Text into Cover Image)</title>
+</head>
+
+{% block heading %}
+            <h1 class="h1 text-center text-white">Text to Image (Encode Text into Cover Image)</h1>
+            <p class="text text-center text-white slogan">
+                We present an steganography service to encode text to image. Upload
+                photo, email of receiver and message to our decoder, click on submit and get your file instantly.
+            </p>
+{% endblock heading %}
+
+
+
+{% block body %}
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="image">Select an image:</label>
+        <input type="file" name="image" id="image">
+        <br>
+        <label for="message">Enter a message:</label>
+        <textarea name="message" id="message"></textarea>
+        <br>
+
+        <label for="email">Enter email of sender:</label>
+        <input type="email" name="email" id="email">
+        <br>
+        <input type="submit" value="Hide Message">
+    </form>
+
+{% endblock %}

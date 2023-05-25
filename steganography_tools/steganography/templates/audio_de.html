@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+<head>
+    <title> Audio to Text (Extract Text From Cover Audio)</title>
+</head>
+
+{% block heading %}
+            <h1 class="h1 text-center text-white">Audio to Text (Extract Text From Cover Audio)</h1>
+            <p class="text text-center text-white slogan">
+                We present an stegananalysis service to decode text from audio. Upload
+                audio file to our decoder, click on submit and get your message instantly.
+            </p>
+            <h3 style="color:red;">Only Use Audio file in "wav" format</h3>
+{% endblock heading %}
+
+
+{% block body %}
+    
+    
+    <form method="POST" action="{% url 'text_to_audio_de' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="audio">Enter the Cover Audio:</label>
+    <input type="file" name="audio" required><br>
+    <input type="submit" value="Hide Text in Audio">
+</form>
+{% if message %}
+    <p>Message: {{message}}</p>
+{% endif %}
+
+{% endblock %}

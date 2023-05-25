@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="_token" content="Pdfnw3XA43RcsrH56vFGUHdzzmhdSB4mng9TOabL" />
+    
+    <meta name="description"
+        content="Steganography, this website lets you hide secret message in a cover file" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <script async defer src="https://apis.google.com/js/api.js"></script>
+    
+    <style>
+        
+        .faq-box a {
+            color: var(--color-purple);
+        }
+
+
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ1ZFKYBEY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-KJ1ZFKYBEY');
+    </script>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "gfcqu5z389");
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar desktop">
+            <div class="logo-div">
+                <a href="https://www.imagetotext.info" class="logo">
+                    <img src="https://www.imagetotext.info/web_assets/frontend/img/logo.svg?v=1.2" alt="logo" />
+                    <span>Steganography</span>
+                </a>
+            </div>
+            <div class="nav-links topnav" id="myTopnav">
+                <ul>
+                    <li><a href="{% url 'hide_msg' %}">Txt to Img En</a></li>
+                    <li><a href="{% url 'show_msg' %}">Img to Txt De</a></li>
+                    <li><a href="{% url 'hide_img' %}">Img to Img En</a></li>
+                    <li><a href="{% url 'show_img' %}">Img to Img De</a></li>
+                    <li><a href="{% url 'text_to_audio' %}">Audio En</a></li>
+                    <li><a href="{% url 'text_to_audio_de' %}">Audio De</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="navbar mobile">
+            <div class="logo-div">
+                <a href="https://www.imagetotext.info" class="logo">
+                    <img src="https://www.imagetotext.info/web_assets/frontend/img/logo.svg" alt="logo" />
+                    <span>steganography</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li>
+                        <span class="icon" onclick="toggle_menubar()">
+                            <div class="mobile-menu-trigger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile-nav-dropdown">
+                <ul>
+                    <li><a href="{% url 'hide_msg' %}">Txt to Img En</a></li>
+                    <li><a href="{% url 'show_msg' %}">Img to Txt De</a></li>
+                    <li><a href="{% url 'hide_img' %}">Img to Img En</a></li>
+                    <li><a href="{% url 'show_img' %}">Img to Img De</a></li>
+                    <li><a href="{% url 'text_to_audio' %}">Audio En</a></li>
+                    <li><a href="{% url 'text_to_audio_de' %}">Audio De</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="section tool-section" style="background-image:url({%static 'image/bg.jpg'%});">
+        <div class="container">
+            {% block heading %}
+            
+            {% endblock heading %}
+            
+            
+            <div class="tool home tool-grid">
+                <div>
+                    <div class="tool-span">
+                        <div class="upload-section">
+                            {% block body %}
+                            {% endblock %}
+                        </div>
+                        <div class="multiple-img-preview d-none">
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="section other-tools">
+        <div class="container">
+            <h2 class="h2 text-center">Encryption Tools</h2>
+            <div class="other_tool_grid">
+                <a class="tool_box" href="{% url 'hide_msg' %}">
+                    <div>
+                        <img src="{% static 'image/icons8-image-gallery-100.png'%}" alt="icon"
+                            loading="lazy" />
+                    </div>
+                    <p>Txt to Img Encryption</p>
+                </a>
+                <a class="tool_box" href="{% url 'hide_img' %}">
+                    <div>
+                        <img src="{%static 'image/icons8-pictures-folder-100.png'%}" alt="icon"
+                            loading="lazy" />
+                    </div>
+                    <p>Img to Img Encryption</p>
+                </a>
+                <a class="tool_box" href="{% url 'text_to_audio' %}">
+                    <div>
+                        <img src="{% static 'image/icons8-music-library-100.png'%}" alt="icon"
+                            loading="lazy" />
+                    </div>
+                    <p>Audio Encryption</p>
+                </a>
+            </div>
+            
+        </div>
+
+        <div class="container">
+            <h2 class="h2 text-center"> Decryption Tools</h2>
+            <div class="other_tool_grid">
+                <a class="tool_box" href="{% url 'show_msg' %}">
+                    <div>
+                        <img src="{% static 'image/icons8-image-gallery-100.png'%}" alt="icon"
+                            loading="lazy" />
+                    </div>
+                    <p>Img to Txt Decryption</p>
+                </a>
+                <a class="tool_box" href="{% url 'show_img' %}">
+                    <div>
+                        <img src="{%static 'image/icons8-pictures-folder-100.png'%}" alt="icon"
+                            loading="lazy" />
+                    </div>
+                    <p>Img to Img Decryption</p>
+                </a>
+                <a class="tool_box" href="{% url 'text_to_audio_de' %}">
+                    <div>
+                        <img src="{% static 'image/icons8-music-library-100.png'%}" alt="icon"
+                            loading="lazy" />
+                    </div>
+                    <p>Audio Decryption</p>
+                </a>
+            </div>
+            <div class="row guide-row">
+                <div class="flex-2">
+                    <p>A steganography is the practice of hiding information or a file within a digital photograph, 
+                    video, or audio file. It will not be obvious to a person observing the object that the 
+                    information is hidden inside if he or she views it. This will prevent the person from 
+                    decrypting the information. A steganography can be divided into text steganography, image 
+                    steganography, audio steganography, and video steganography. Steganography is one of the 
+                    most common ways to conceal information in cover images. Cover files are embedded with 
+                    information using the LSB algorithm, which is a very efficient algorithm</p>
+                </div>
+                <div class="flex-1">
+                    <img src="https://www.imagetotext.info/web_assets/frontend/img/guide-right.svg" alt="guide"
+                        class="img-fluid" loading="lazy" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section how-it-work">
+        <div class="container">
+            <div>
+                <div class="text-center">
+                    <img src="{% static 'image/stego.png' %}" alt="ocr_document"
+                        loading="lazy">
+                </div>
+                <p>Hide text, Image in Image, screenshots, Audio file of your choosing and send them to others without anyone else noticing the message.</p>
+                <p>Most importantly, you can convert image to text online without having a thought about the format of the picture i.e., .JPG, .JPEG, .PNG.</p>
+                <p>The audio has to be in "wav" format to be able to be used as Cover File.</p>
+                <div id="how-it-works">
+                    <h2>How does Steganography work?</h2>
+                </div>
+                <p>You don't have to do much to hide message in an image if you don't know how to encode the text. Simply follow these steps.</p>
+                <ul class="htw_ul">
+                    <li>Upload your image or Audio.</li>
+                    <li>Enter the Secret message.</li>
+                    <li>Enter the Email of the recipient of the message.</li>
+                    <li>Hit the <strong>Submit</strong> button.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="section bg-skyblue feature">
+        <div class="container">
+            <div class="feature-cards-grid">
+                <div>
+                    <h2 class="feature-card-heading">
+                        Features -Steganography
+                    </h2>
+                    <div class="d-flex">
+                        <hr class="feature-heading-hr hr-left">
+                        <hr class="feature-heading-hr hr-right">
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h3 class="title">
+                        Free to use
+                    </h3>
+                    <p>
+                    <p>Encoding text to image or audio is totally free. You don't have to spend a single penny to encrypt
+                        data to your favorite photos. We don't ask our users to get registered with us. You can
+                        grab the text and flee away whenever you want.</p>
+                    </p>
+                </div>
+                
+                
+                <div class="feature-card">
+                    <h3 class="title">
+                        Download File
+                    </h3>
+                    <p>
+                    <p>After you are done encrypting text, you can download it as a file. This file can be sent to
+                        recipient as per your needs. </p>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="title">
+                        Multiple Image Formats
+                    </h3>
+                    <p>
+                    <p>This tool supports dozens of image formats. You don&rsquo;t need to worry about the extension of
+                        the image. It supports the following formats and we are continuously working to add more of
+                        them.<br>&bull; JPG JPEG PNG .</p>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-2">
+                <img src="{%static 'image/stego_process.png' %}" alt="word detection"
+                    class="img-fluid">
+            </div>
+            <h2 class="text-center font-bold wcu-heading">Where can you use a Steganography?</h2>
+            <div class="feature-cards-grid">
+                <div class="feature-card">
+                    <h3 class="title">
+                        Confidential Communication:
+                    </h3>
+                    <p>
+                    <p>Sensitive information can be safely transmitted using steganography over open channels without drawing attention. 
+                    The covert communication can be maintained by hiding the secret message within seemingly innocent cover media, like 
+                    pictures, audio files, or video clips.</p>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="title">
+                        Copyright Protection
+                    </h3>
+                    <p>
+                    <p>Steganography can be used to add digital signatures or invisible watermarks to media files. 
+                        This enables content producers to demonstrate ownership and track down illegal use or copyright violations.</p>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="title">
+                        Covert Operations:
+                    </h3>
+                    <p>
+                    <p>Steganography can be used for covert communications in military and intelligence operations. 
+                        To maintain confidentiality, agents can transmit covert messages through a variety of 
+                        channels or conceal sensitive information within seemingly innocent files.</p>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="title">
+                        Digital Forensics:
+                    </h3>
+                    <p>
+                    <p>Steganography can be employed for forensic examination of digital media. 
+                        In order to collect information about illegal activities or cybercrimes, investigators can find and extract hidden information from suspect files.</p>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="title">
+                        Anti-Censorship Tools
+                    </h3>
+                    <p>
+                    <p>Steganography can help people get around internet censorship by hiding sensitive information within seemingly unimportant data. 
+                        Users can share restricted content or get around content filtering systems using it.</p>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="title">
+                        Secret Messaging in Social Media:
+                    </h3>
+                    <p>
+                    <p> Steganography techniques can be used to conceal messages within posts, comments, or images on social media. 
+                        As a result, people can converse in private on public platforms without raising any suspicions.
+
+                    </p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <section class=" footer-cards">
+        <div class="container">
+            <div class="footer-cards-div ">
+                <div class="footer-card-row">
+                    <div class="col">
+                        <div class="footer-card">
+                            <div class="icon">
+                                <img src="https://www.imagetotext.info/web_assets/frontend/img/envelope.svg" alt="icon"
+                                    loading="lazy">
+                            </div>
+                            <div class="title">
+                                <span>Email</span>
+                            </div>
+                            <div class="value">
+                                <span><a
+                                        href="/cdn-cgi/l/email-protection#fe8d8b8e8e918c8abe97939f999b8a918a9b868ad097909891"><span
+                                            class="__cf_email__"
+                                            data-cfemail="b0c3c5c0c0dfc2c4f0d9ddd1d7d5c4dfc4d5c8c49ed9ded6df">rockwellsam00@gmail.com</span></a></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <section class="section footer-section">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <div class="footer_title">
+                            <p>Other Tools</p>
+                        </div>
+                        <div class="links_list">
+                            <a href="{% url 'hide_msg' %}">Txt to Img En</a>
+                            <a href="{% url 'show_msg' %}">Img to Txt De</a>
+                            <a href="{% url 'hide_img' %}">Img to Img En</a>
+                            <a href="{% url 'show_img' %}">Img to Img De</a>
+                            <a href="{% url 'text_to_audio' %}">Audio En</a>
+                            <a href="{% url 'text_to_audio_de' %}">Audio De</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="copyright-row d-flex justify-space-between">
+                    <div>
+                        <span>
+                            Copyright © All rights reserved |</a>
+                        </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </footer>
+
+   
+    
+</body>
+
+</html>

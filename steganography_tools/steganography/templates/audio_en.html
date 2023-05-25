@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+<head>
+    <title> Text to Audio (Encode Text into Cover Audio)</title>
+</head>
+
+{% block heading %}
+            <h1 class="h1 text-center text-white">Text to Audio (Encode Text into Cover Audio)</h1>
+            <p class="text text-center text-white slogan">
+                We present an steganography service to encode text to audio. Upload cover
+                audio and secret message to our decoder, click on submit and get your file instantly.
+            </p>
+            <h3 style="color:red;">Only Use Audio file in "wav" format</h3>
+{% endblock heading %}
+
+
+{% block body %}
+    
+    
+    <form method="POST" action="{% url 'text_to_audio' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="audio">Select an Audio:</label>
+    <input type="file" name="audio" required><br>
+    <label for="message">Enter a message:</label>
+    <textarea name="text" rows="4" cols="50" required></textarea><br>
+    <input type="submit" value="Hide Text in Audio">
+</form>
+
+
+{% endblock %}

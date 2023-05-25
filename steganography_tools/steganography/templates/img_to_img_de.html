@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+<head>
+    <title> Image to Image (Extract Secret Image From Cover Image)</title>
+</head>
+
+{% block heading %}
+            <h1 class="h1 text-center text-white">Image to Image (Extract Secret Image From Cover Image)</h1>
+            <p class="text text-center text-white slogan">
+                We present an stegananalysis service to decode seceret image from cover image. Upload
+                photo to our decoder, click on submit and get your image instantly.
+            </p>
+{% endblock heading %}
+
+
+{% block body %}
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="image">Select an image:</label>
+        <input type="file" name="decrypt_image" id="decrypt_image">
+        <br>
+        <input type="submit" value="Hide Message">
+    </form>
+{% endblock %}

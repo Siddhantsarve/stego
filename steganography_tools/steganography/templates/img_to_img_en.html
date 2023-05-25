@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+<head>
+    <title> Image to Image (Encode Secret Image into Cover Image)</title>
+</head>
+
+{% block heading %}
+            <h1 class="h1 text-center text-white">Image to Image (Encode Secret Image into Cover Image)</h1>
+            <p class="text text-center text-white slogan">
+                We present an steganography service to encode image to image. Upload cover
+                photo and secret message to our decoder, click on submit and get your file instantly.
+            </p>
+{% endblock heading %}
+
+
+{% block body %}
+    
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="image">Select a Cover image:</label>
+        <input type="file" name="cover_image" id="cover_image">
+        <br>
+        <label for="message">Select the image to hide:</label>
+        <input type="file" name="secret_image" id="secret_image">
+        <br>
+        <input type="submit" value="Hide Message">
+    </form>
+
+{% endblock %}
