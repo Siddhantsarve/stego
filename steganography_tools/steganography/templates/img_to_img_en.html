@@ -18,10 +18,10 @@
     
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="image">Select a Cover image:</label>
+        <label for="image">Select a Cover Image:</label>
         <input type="file" name="cover_image" id="cover_image">
         <br>
-        <label for="message">Select the image to hide:</label>
+        <label for="message">Select the Image to hide:</label>
         <input type="file" name="secret_image" id="secret_image">
         <br>
         <input type="submit" value="Hide Message">
